@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Hei-Ha/react-admin/issues"
   },
-  "homepage": "https://github.com/Hei-Ha/react-admin#readme"
+  "homepage": "https://github.com/Hei-Ha/react-admin#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
 }
