@@ -19,6 +19,12 @@
   },
   "homepage": "https://github.com/Hei-Ha/react-admin#readme",
   "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
     "html-webpack-plugin": "^5.5.0",
     "less-loader": "^10.2.0",
     "style-loader": "^3.3.1",

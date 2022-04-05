@@ -13,7 +13,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, '../public/index.html'),
-            inject: true
+            inject: true,
+            minify: {
+                removeComments: true,
+            }
         })
     ],
     resolve: {
@@ -37,15 +40,27 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                use: [
-                    {
-                        loader: "url-loader",
-                        options: {
-                            limit: 1000
-                        }
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 12000, // 图片超过这个大小，使用原图片，否则使用base64字符串
                     }
-                ]
+                }
             },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-react'],
+                        plugins: [
+                            // '@babel/plugin-transform-runtime',
+                            // '@babel/plugin-proposal-class-properties'
+                        ]
+                    }
+                }
+            }
         ]
     }
 }
