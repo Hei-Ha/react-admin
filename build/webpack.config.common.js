@@ -19,7 +19,7 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.less', '.scss'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.less', '.scss'],
         modules: [path.resolve(process.cwd(), 'src'), 'node_modules'],
         alias: {
             '@': path.resolve(process.cwd(), 'src')
@@ -60,10 +60,10 @@ module.exports = {
                 }
             },
             {
-                test: /\.tsx?$/,
+                test: /\.tsx$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-            },
+            }
         ]
     }
 }
