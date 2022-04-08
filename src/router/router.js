@@ -1,0 +1,1 @@
+const menus = require.context(process.cwd(), true, /^\.\/(pages|views)(\/[\w.-]+)?\/router.(js|ts)$/)
