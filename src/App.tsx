@@ -1,9 +1,10 @@
 import React from 'react'
 import { Layout } from 'antd'
-// import * as test from '../src/menus/menus'
-import * as test from '@/menus/menus'
-
+import { resMenus } from '@/menus/menus'
 import { Sidebar }  from './components/Sidebar'
+
+console.log(resMenus)
+console.log(12)
 
 export const App = (): JSX.Element => {
     return <>

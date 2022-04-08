@@ -1,7 +1,9 @@
-const menus = require.context(process.cwd(), true, /^\.\/(pages|views)(\/[\w.-]+)?\/menu.(js|ts)$/)
+const resModules = require.context('../', true, /^\.\/(pages|views)(\/[\w.-]+)?\/menu.(js|ts)$/)
 
-menus.keys().forEach((item) => {
-    console.log(item)
-})
+const result = (m) => {
+    return m.keys()
+}
+
+console.log(result(resModules))
 
 export const resMenus = []
