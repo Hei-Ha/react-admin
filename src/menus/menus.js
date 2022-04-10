@@ -1,9 +1,11 @@
-const resModules = require.context('../', true, /^\.\/(pages|views)(\/[\w.-]+)?\/menu.(js|ts)$/)
+const menuModules = require.context('../', true, /^\.\/(pages|views)(\/[\w.-]+)?\/menu.(js|ts|tsx)$/)
 
-const result = (m) => {
-    return m.keys()
-}
+const menus = ((m) => {
+    return m.keys().map((key) => {
+        return m(key).default
+    })
+})(menuModules)
 
-console.log(result(resModules))
+const res = []
 
-export const resMenus = []
+export default res.concat(...menus)
