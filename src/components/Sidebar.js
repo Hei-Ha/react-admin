@@ -7,7 +7,7 @@ import menus from '@/menus/menus'
 const handleMenu = (menus) => {
     return menus.map((item) => {
         if (item.children?.length > 0) {
-            return <Menu.SubMenu key={item.name} icon={item.icon} title={item.name}>
+            return <Menu.SubMenu key={item.name} title={item.name} icon={item.icon}>
                 {handleMenu(item.children)}
             </Menu.SubMenu>
         } else {

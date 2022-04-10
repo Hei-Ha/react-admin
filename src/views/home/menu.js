@@ -1,8 +1,11 @@
+import React from "react";
+import { UserOutlined } from '@ant-design/icons'
+
 export default [
     {
         path: '/home',
         name: 'Home',
-        icon: 'UserOutlined',
+        icon: <UserOutlined />,
         weight: 1,
         children: [
             {
@@ -20,7 +23,7 @@ export default [
     {
         path: '/haha',
         name: 'haha',
-        icon: 'UserOutlined',
+        icon: <UserOutlined />,
         weight: 1,
         children: [
             {
