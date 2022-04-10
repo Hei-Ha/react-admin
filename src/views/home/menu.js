@@ -16,6 +16,30 @@ export default [
                 rules: ['testSecond']
             }
         ]
+    },
+    {
+        path: '/haha',
+        name: 'haha',
+        icon: 'UserOutlined',
+        weight: 1,
+        children: [
+            {
+                path: '/third',
+                name: '第三',
+                children: [
+                    {
+                        path: '/third_first',
+                        name: '第三，第一',
+                        rule: 'test31'
+                    }
+                ]
+            },
+            {
+                path: '/fourth',
+                name: '第四',
+                rules: ['testSecond']
+            },
+        ]
     }
 ]
 
