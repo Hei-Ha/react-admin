@@ -17,11 +17,20 @@ const handleMenu = (menus) => {
 }
 
 
-
-
 export const Sidebar = () => {
     return <>
-        <Layout.Sider trigger={null} collapsible>
+        <Layout.Sider
+            trigger={null}
+            collapsible={true}
+            style={{
+                overflow: 'auto',
+                height: '100%',
+                position: 'fixed',
+                left: 0,
+                top: 0,
+                bottom: 0,
+            }}
+        >
             <div className="logo" />
             <Menu theme="dark" mode="inline">
                 {handleMenu(menus)}
