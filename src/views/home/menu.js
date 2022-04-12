@@ -33,7 +33,7 @@ export default [
                     {
                         path: '/third_first',
                         name: '第三，第一',
-                        rule: 'test31'
+                        rules: ['test31']
                     }
                 ]
             },
