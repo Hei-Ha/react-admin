@@ -18,6 +18,11 @@ interface MenuValues {
     children?: MenuChildren[]; // 子菜单
 }
 
+
+interface propsValue {
+    collapsed: boolean;
+}
+
 const handleMenu = (menus: MenuValues[]) => {
     return menus.map((item) => {
         if (item.children?.length > 0) {
@@ -31,24 +36,23 @@ const handleMenu = (menus: MenuValues[]) => {
 }
 
 
-export const Sidebar = () => {
-    return <>
-        <Layout.Sider
-            trigger={null}
-            collapsible={true}
-            style={{
-                overflow: 'auto',
-                height: '100%',
-                position: 'fixed',
-                left: 0,
-                top: 0,
-                bottom: 0,
-            }}
-        >
-            <div className="logo" />
-            <Menu theme="dark" mode="inline">
-                {handleMenu(menus)}
-            </Menu>
-        </Layout.Sider>
-    </>
+export const Sidebar = (props: propsValue) => {
+    return <Layout.Sider
+        trigger={null}
+        collapsible={true}
+        collapsed={props.collapsed}
+        style={{
+            overflow: 'auto',
+            height: '100%',
+            position: 'fixed',
+            left: 0,
+            top: 0,
+            bottom: 0,
+        }}
+    >
+        <div className="logo" />
+        <Menu theme="dark" mode="inline">
+            {handleMenu(menus)}
+        </Menu>
+    </Layout.Sider>
 }

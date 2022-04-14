@@ -1,13 +1,7 @@
 import React from 'react'
-import { Layout } from 'antd'
-import routers from '@/router/router'
-import { Sidebar }  from './components/Sidebar'
+import { LayoutContainer } from '@/components/layout'
 
 
 export const App = (): JSX.Element => {
-    return <>
-        <Layout>
-            <Sidebar />
-        </Layout>
-    </>
+    return <LayoutContainer />
 }
