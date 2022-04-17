@@ -1,15 +1,16 @@
 import React from 'react'
 import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+const { Header, Content, Footer } = Layout
 import '../layout.less'
 
 interface propsValue {
     handleCollapsed: Function;
     collapsed: boolean;
 }
-export const Content = (props: propsValue): JSX.Element => {
-    return <Layout className={props.collapsed ? 'collapsed' : 'noCollapsed'}>
-        <Layout.Header style={{ padding: 0, background: '#FFFFFF'}}>
+export const ContentContainer = (props: propsValue): JSX.Element => {
+    return <Layout className={props.collapsed ? 'collapsed' : 'noCollapsed'} style={{ height: '100%'}}>
+        <Header style={{ padding: 0, background: '#FFFFFF'}}>
             {props.collapsed ?
                 <MenuUnfoldOutlined
                     className={'collapsedIcon'}
@@ -18,9 +19,12 @@ export const Content = (props: propsValue): JSX.Element => {
                 <MenuFoldOutlined
                     className={'collapsedIcon'}
                     onClick={() => { props.handleCollapsed() }} /> }
-        </Layout.Header>
-        <Layout.Content>
-            content
-        </Layout.Content>
+        </Header>
+        <Content className={'contentContinuer'}>
+            中间内容
+        </Content>
+        <Footer className={'footer'}>
+            Design of AntD
+        </Footer>
     </Layout>
 }
