@@ -3,19 +3,20 @@ import {Layout, Menu} from "antd";
 import menus from '@/menus/menus'
 
 
-interface MenuChildren {
-    name: string;
+interface MenuChildrenValues {
+    label: string;
     path: string;
     rules?: string[];
-    children?: MenuChildren[];
+    children?: MenuChildrenValues[];
 }
 
 interface MenuValues {
     weight?: number; // 菜单权重
     path: string; // 路径
-    name: string; // 菜单名称
+    label: string; // 菜单名称
     icon?: JSX.Element; // 菜单图标
-    children?: MenuChildren[]; // 子菜单
+    children?: MenuChildrenValues[]; // 子菜单
+    rules?: string[]; // menu 权限
 }
 
 
@@ -26,11 +27,11 @@ interface propsValue {
 const handleMenu = (menus: MenuValues[]) => {
     return menus.map((item) => {
         if (item.children?.length > 0) {
-            return <Menu.SubMenu key={item.name} title={item.name} icon={item.icon}>
+            return <Menu.SubMenu key={item.label} title={item.label} icon={item.icon}>
                 {handleMenu(item.children)}
             </Menu.SubMenu>
         } else {
-            return <Menu.Item key={item.path}>{item.name}</Menu.Item>
+            return <Menu.Item key={item.path}>{item.label}</Menu.Item>
         }
     })
 }
