@@ -4,6 +4,6 @@ const routers = ((r) => {
     return r.keys().map(k => r(k).default)
 })(routerModules)
 
-const routerResult = []
+const routerConfig = []
 
-export default routerResult.concat(...routers)
+export default routerConfig.concat(...routers)
