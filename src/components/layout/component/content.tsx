@@ -3,6 +3,8 @@ import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 const { Header, Content, Footer } = Layout
 import '../layout.less'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import routerConfig from '@/router/router'
 
 interface propsValue {
     handleCollapsed: Function;
@@ -21,7 +23,11 @@ export const ContentContainer = (props: propsValue): JSX.Element => {
                     onClick={() => { props.handleCollapsed() }} /> }
         </Header>
         <Content className={'contentContinuer'}>
-            中间内容
+            <Routes>
+                {routerConfig.map((item) => {
+                    return <Route path={item.path} element={item.element} key={item.path} />
+                })}
+            </Routes>
         </Content>
         <Footer className={'footer'}>
             Design of AntD

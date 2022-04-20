@@ -6,6 +6,9 @@ const menus = ((m) => {
     })
 })(menuModules)
 
-const res = []
+const res = [].concat(...menus)
 
-export default res.concat(...menus)
+// 按照 weight 排序
+res.sort((a, b) => a.weight - b.weight)
+
+export default res

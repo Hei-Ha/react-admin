@@ -1,10 +1,11 @@
 import { Home } from './src/home'
+import React from "react";
 
 export default [
     {
         name: 'home',
         path: '/',
-        components: Home,
+        element: <Home />,
         rules: ['home']
     }
 ]

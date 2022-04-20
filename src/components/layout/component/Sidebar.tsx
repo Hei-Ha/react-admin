@@ -1,6 +1,7 @@
 import React  from "react";
 import {Layout, Menu} from "antd";
 import menus from '@/menus/menus'
+import { Link } from 'react-router-dom'
 
 
 interface MenuChildrenValues {
@@ -31,7 +32,9 @@ const handleMenu = (menus: MenuValues[]) => {
                 {handleMenu(item.children)}
             </Menu.SubMenu>
         } else {
-            return <Menu.Item key={item.path}>{item.label}</Menu.Item>
+            return <Menu.Item key={item.path}>
+                <Link to={item.path}>{item.label}</Link>
+            </Menu.Item>
         }
     })
 }
@@ -52,7 +55,11 @@ export const Sidebar = (props: propsValue) => {
         }}
     >
         <div className="logo" />
-        <Menu theme="dark" mode="inline">
+        <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={['/']}
+        >
             {handleMenu(menus)}
         </Menu>
     </Layout.Sider>
