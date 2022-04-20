@@ -1,7 +1,7 @@
-import React  from "react";
+import React, {useEffect, useState} from "react";
 import {Layout, Menu} from "antd";
 import menus from '@/menus/menus'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 
 interface MenuChildrenValues {
@@ -58,6 +58,7 @@ export const Sidebar = (props: propsValue) => {
         <Menu
             theme="dark"
             mode="inline"
+            selectedKeys={[useLocation().pathname]}
             defaultSelectedKeys={['/']}
         >
             {handleMenu(menus)}

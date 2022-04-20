@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 const { Header, Content, Footer } = Layout
 import '../layout.less'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import routerConfig from '@/router/router'
 
 interface propsValue {
