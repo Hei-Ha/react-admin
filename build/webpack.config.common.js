@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+    mode: process.env.NODE_ENV,
     entry: './src/index.js',
     output: {
         filename: '[name].js',
@@ -28,15 +29,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            //     type: 'url-loader',
-            //     options: {
-            //         name: '[name].[ext]', // 输出的文件名为 原来的文件名
-            //         outputPath: 'images',
-            //         limit: 8192 // 指定文件的最大体积（以字节为单位）
-            //     }
-            // },
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 type: 'asset',
