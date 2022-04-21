@@ -12,6 +12,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(process.cwd(), './public/index.html'),
+            favicon: path.resolve(process.cwd(), './public/favicon.png'),
             inject: 'body',
             minify: {
                 removeComments: true,
@@ -37,7 +38,7 @@ module.exports = {
             //     }
             // },
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                test: /\.(png|jpe?g|gif|svg)$/,
                 type: 'asset',
                 parser: {
                     dataUrlCondition: {

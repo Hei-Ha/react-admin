@@ -54,7 +54,12 @@ export const Sidebar = (props: propsValue) => {
             bottom: 0,
         }}
     >
-        <div className="logo" />
+        <Link to={'/'}>
+            <div className="logo">
+                Hei-Ha
+            </div>
+        </Link>
+
         <Menu
             theme="dark"
             mode="inline"
