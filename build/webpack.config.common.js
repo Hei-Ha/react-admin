@@ -24,7 +24,8 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.less', '.scss'],
         modules: [path.resolve(process.cwd(), 'src'), 'node_modules'],
         alias: {
-            '@': path.resolve(process.cwd(), 'src')
+            '@': path.resolve(process.cwd(), 'src'),
+            '/': path.resolve(process.cwd(), '')
         }
     },
     module: {

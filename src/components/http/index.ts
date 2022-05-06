@@ -1,5 +1,6 @@
 import Axios, { AxiosRequestConfig } from 'axios'
-import envConfig from 'build/env.config'
+// import envConfig  from '../../../build/env.config'
+import envConfig  from 'build/env.config'
 
 const HTTP = Axios.create({
     baseURL: envConfig.baseURL,
@@ -20,8 +21,14 @@ HTTP.interceptors.response.use((response) => {
     // 超出 2xx 范围的状态码都会触发该函数。
 })
 
-export const GET = (url: string, params: object) => {
+export const GET = (url: string, params?: object) => {
+    console.log(envConfig)
+    console.log(12)
     return HTTP.get(url, {
         params
     })
+}
+
+export const POST = (url: string, params: object) => {
+    return HTTP.post(url, params)
 }
