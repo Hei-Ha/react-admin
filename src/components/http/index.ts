@@ -21,10 +21,12 @@ HTTP.interceptors.response.use((response) => {
 })
 
 export const GET = (url: string, params?: object) => {
-    console.log(envConfig)
-    console.log(12)
     return HTTP.get(url, {
         params
+    }).then((res) => {
+        if (res.status === 200) {
+            return res.data
+        }
     })
 }
 
