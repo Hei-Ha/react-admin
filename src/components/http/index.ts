@@ -1,6 +1,5 @@
 import Axios, { AxiosRequestConfig } from 'axios'
-// import envConfig  from '../../../build/env.config'
-import envConfig  from 'build/env.config'
+import envConfig  from '/build/env.config'
 
 const HTTP = Axios.create({
     baseURL: envConfig.baseURL,
