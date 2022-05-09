@@ -1,5 +1,6 @@
 import Axios, { AxiosRequestConfig } from 'axios'
 import envConfig  from '/build/env.config'
+import { message } from 'antd'
 
 const HTTP = Axios.create({
     baseURL: envConfig.baseURL,
@@ -16,8 +17,25 @@ HTTP.interceptors.request.use((config) => {
 HTTP.interceptors.response.use((response) => {
     // 2xx 范围内的状态码都会触发该函数。
     return response
-}, () => {
+}, (error) => {
     // 超出 2xx 范围的状态码都会触发该函数。
+    message.destroy(); // 先关闭其他提示消息
+    switch (true) {
+        case error.response.status === 400:
+            message.error('错误请求！');
+            break
+        case error.response.status === 401:
+            message.error('登陆过期，请重新登录!');
+            break
+        case error.response.status === 404:
+            message.error('请求错误，未找到资源！');
+            break
+        case error.response.status >= 500:
+            message.error('服务端错误');
+            break
+        default:
+            message.error('未知错误！');
+    }
 })
 
 export const GET = (url: string, params?: object) => {

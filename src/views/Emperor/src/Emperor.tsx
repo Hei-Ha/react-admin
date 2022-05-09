@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import { Card, Form, Input, Table, Select, Button } from 'antd'
-import { ID } from '@/common/constants'
 import {
     getDynasties as getDynastiesApi
 } from '@/services/Emperor.services'
