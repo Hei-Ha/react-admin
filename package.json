@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Hei-Ha/react-admin#readme",
   "devDependencies": {
+    "@arco-design/web-react": "^2.32.2",
     "@babel/core": "^7.17.8",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.17.0",
