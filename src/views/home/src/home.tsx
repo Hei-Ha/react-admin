@@ -9,9 +9,22 @@ export const Home = (): JSX.Element => {
         'https://upload-images.jianshu.io/upload_images/5809200-c12521fbde6c705b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
         'https://upload-images.jianshu.io/upload_images/5809200-caf66b935fd00e18.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
     ]
+    const handleOk = () => {
+        console.log('use')
+    }
+    const handleRefuse = () => {
+        console.log('refuse')
+    }
+    const onChange = (item: string) => {
+        console.log(item)
+    }
     return <>
         <ImgPlayer
             imageList={list}
+            ok={handleOk}
+            refuse={handleRefuse}
+            isShowFooter={true}
+            onChange={onChange}
         />
     </>
 }
