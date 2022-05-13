@@ -66,7 +66,7 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
                     <Button className={'mr-10'} type={'secondary'} onClick={useless}>不可用</Button>
                 </Tooltip>
                 <Tooltip position='top' content={'快捷操作 C'}>
-                    <Button className={'mr-20'} type={'primary'} onClick={use}>可用</Button>
+                    <Button className={'mr-30'} type={'primary'} onClick={use}>可用</Button>
                 </Tooltip>
             </footer>}
         </div>
