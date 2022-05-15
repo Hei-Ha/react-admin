@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Tooltip} from '@arco-design/web-react'
 import {IconLeft, IconRight} from '@arco-design/web-react/icon'
 import './index.less'
+import { ProblemRecordModal } from "./components/problemRecordModal";
 
 
 interface PropValues {
@@ -15,6 +16,7 @@ interface PropValues {
 
 export const ImgPlayer = (props: PropValues): JSX.Element => {
     const [bigImageIndex, setBigImageIndex] = useState<number>(0)
+    const [problemRecordVisible, setProblemRecordVisible] = useState<boolean>(false)
 
 
     const handleClick = (index: number) => {
@@ -35,6 +37,9 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
     }
     const use = () => {
         console.log('可用')
+
+
+        setProblemRecordVisible(true)
         // handleNext()
     }
     const useless = () => {
@@ -84,5 +89,6 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
                 </Tooltip>
             </footer>}
         </div>
+        {problemRecordVisible && <ProblemRecordModal visible={problemRecordVisible} closeVisible={() => { setProblemRecordVisible(false)} } />}
     </>
 }
