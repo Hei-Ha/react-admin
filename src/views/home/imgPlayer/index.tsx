@@ -10,6 +10,7 @@ interface PropValues {
     refuse: Function;
     isShowFooter: Boolean; // 是否需要 footer 按钮
     onChange: Function;
+    isShowErrorContent: JSX.Element;
 }
 
 export const ImgPlayer = (props: PropValues): JSX.Element => {
@@ -21,7 +22,7 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
     }
 
     useEffect(() => {
-        props.onChange(props.imageList[bigImageIndex])
+        props.onChange(props.imageList[bigImageIndex], props.imageList.indexOf(props.imageList[bigImageIndex]))
     }, [bigImageIndex])
 
     const handleNext = () => {
@@ -33,15 +34,28 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
         setBigImageIndex(resIndex)
     }
     const use = () => {
-        handleNext()
+        console.log('可用')
+        // handleNext()
     }
     const useless = () => {
-        handleNext()
+        console.log('不可用')
+        // handleNext()
     }
 
     return <>
         <div className={'container'}>
             <div className={'content'}>
+                <div className={'errorMsgBtn'}>
+                    <Tooltip
+                        position='bl'
+                        trigger='hover'
+                        color={'#FFFFFF'}
+                        content={<div><Button>error Msg</Button></div>}>
+                        <Button type={'secondary'}>
+                            错误详情<IconRight />
+                        </Button>
+                    </Tooltip>
+                </div>
                 <div className={'bigImg'}>
                     <img src={props.imageList[bigImageIndex]} alt="first"/>
                 </div>

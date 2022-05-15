@@ -15,16 +15,22 @@ export const Home = (): JSX.Element => {
     const handleRefuse = () => {
         console.log('refuse')
     }
-    const onChange = (item: string) => {
+    const onChange = (item: string, index: number) => {
         console.log(item)
+        console.log(index)
     }
     return <>
-        <ImgPlayer
-            imageList={list}
-            ok={handleOk}
-            refuse={handleRefuse}
-            isShowFooter={true}
-            onChange={onChange}
-        />
+        <div className={'waicediv'}>
+            <ImgPlayer
+                imageList={list}
+                ok={handleOk}
+                refuse={handleRefuse}
+                isShowFooter={true}
+                onChange={onChange}
+                isShowErrorContent={<div>
+                    das
+                </div>}
+            />
+        </div>
     </>
 }

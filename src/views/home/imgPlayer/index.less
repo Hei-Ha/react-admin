@@ -1,19 +1,32 @@
 @smallImgWidth: 200px;
 @smallImgHeight: 200px;
 
+.waicediv {
+  background: #CCCCCC;
+  margin: 0 auto;
+}
+
 
 .container {
   overflow: hidden;
   width: 900px;
+  margin: 0 auto;
 
   .content {
     background-color: #000000;
     width: 100%;
     height: 700px;
-    z-index: -1;
     display: flex;
     align-items: center;
     margin: 0 auto;
+    position: relative;
+
+    .errorMsgBtn {
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
 
     .bigImg {
       background-color: #FFFFFF;
