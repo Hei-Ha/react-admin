@@ -11,12 +11,17 @@ interface PropValues {
     refuse: Function;
     isShowFooter: Boolean; // 是否需要 footer 按钮
     onChange: Function;
-    isShowErrorContent: JSX.Element;
+    isShowErrorContent?: JSX.Element;
+    children: JSX.Element;
 }
 
 export const ImgPlayer = (props: PropValues): JSX.Element => {
     const [bigImageIndex, setBigImageIndex] = useState<number>(0)
     const [problemRecordVisible, setProblemRecordVisible] = useState<boolean>(false)
+    useEffect(() => {
+        console.log(props)
+        console.log(123)
+    }, [])
 
 
     const handleClick = (index: number) => {
@@ -50,16 +55,8 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
     return <>
         <div className={'container'}>
             <div className={'content'}>
-                <div className={'errorMsgBtn'}>
-                    <Tooltip
-                        position='bl'
-                        trigger='hover'
-                        color={'#FFFFFF'}
-                        content={<div><Button>error Msg</Button></div>}>
-                        <Button type={'secondary'}>
-                            错误详情<IconRight />
-                        </Button>
-                    </Tooltip>
+                <div className={'titleMessage'}>
+                    {props.children}
                 </div>
                 <div className={'bigImg'}>
                     <img src={props.imageList[bigImageIndex]} alt="first"/>
@@ -68,6 +65,7 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
                     <ul>
                         {props.imageList.map((item, index) => {
                             return <div className={'imgList'} key={item + index}>
+                                {/*如果选择的是 run 且是第一个图片的时候，左上角显示 叠加 tag*/}
                                 <div className={index === 0 ? 'imgLTActive': 'imgLT'}>叠加</div>
                                 <img className={index === bigImageIndex ? 'active' : ''} onClick={() => {
                                     handleClick(index)

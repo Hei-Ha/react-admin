@@ -1,6 +1,8 @@
 import React from "react";
 import './home.less'
 import {ImgPlayer} from "@/views/home/imgPlayer";
+import {Button, Tooltip} from '@arco-design/web-react'
+import {IconRight} from '@arco-design/web-react/icon'
 
 export const Home = (): JSX.Element => {
     const list = [
@@ -27,10 +29,17 @@ export const Home = (): JSX.Element => {
                 refuse={handleRefuse}
                 isShowFooter={true}
                 onChange={onChange}
-                isShowErrorContent={<div>
-                    das
-                </div>}
-            />
+            >
+                <Tooltip
+                    position='bl'
+                    trigger='hover'
+                    color={'#FFFFFF'}
+                    content={<div><Button>error Msg</Button></div>}>
+                    <Button type={'secondary'}>
+                        错误详情<IconRight />
+                    </Button>
+                </Tooltip>
+            </ImgPlayer>
         </div>
     </>
 }
