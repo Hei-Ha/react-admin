@@ -67,9 +67,12 @@ export const ImgPlayer = (props: PropValues): JSX.Element => {
                 <div className={'smallImg'}>
                     <ul>
                         {props.imageList.map((item, index) => {
-                            return <img className={index === bigImageIndex ? 'active' : ''} key={item + index} onClick={() => {
-                                handleClick(index)
-                            }} src={item} alt="item"/>
+                            return <div className={'imgList'} key={item + index}>
+                                <div className={index === 0 ? 'imgLTActive': 'imgLT'}>叠加</div>
+                                <img className={index === bigImageIndex ? 'active' : ''} onClick={() => {
+                                    handleClick(index)
+                                }} src={item} alt="item"/>
+                            </div>
                         })}
                     </ul>
                 </div>
