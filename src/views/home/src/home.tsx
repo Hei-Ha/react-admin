@@ -8,8 +8,8 @@ export const Home = (): JSX.Element => {
     //     testGetApi({id: 1})
     // }
     return <>
-        <div>Welcome To ...</div>
-        <Button onClick={() => { testGetApi({id: 1}) }}>GET</Button>
-        <Button onClick={() => { testPostApi({id: 2}) }}>POST</Button>
+        <div className={'bg-orange-300'}>Welcome To ...</div>
+        {/*<Button onClick={() => { testGetApi({id: 1}) }}>GET</Button>*/}
+        {/*<Button onClick={() => { testPostApi({id: 2}) }}>POST</Button>*/}
     </>
 }
