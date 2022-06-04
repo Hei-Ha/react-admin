@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Card, Form, Input, Table, Select, Button } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 import {
     getDynasties as getDynastiesApi
 } from '@/services/Emperor.services'
@@ -46,9 +47,9 @@ export const Emperor = () => {
 
     const columns = [
         {
+            fixed: true,
             title: '姓名',
             dataIndex: 'name',
-            fixed: true,
             key: 'name',
             width: 200,
             align: 'center' as 'center',
@@ -87,11 +88,11 @@ export const Emperor = () => {
                     <Select placeholder={'请选择朝代'}>
                         {dynamicList.map((item) => {
                             return <Select.Option value={item.value} title={item.label} key={String(item.value) + item.label}>{item.label}</Select.Option>
-                        })}å
+                        })}
                     </Select>
                 </Form.Item>
                 <Form.Item>
-                    <Button type={'primary'} onClick={() => { headSearch() }}>查询</Button>
+                    <Button onClick={() => { headSearch() }}>查询</Button>
                     <Button style={{ marginLeft: '10px'}}>重置</Button>
                 </Form.Item>
             </Form>
