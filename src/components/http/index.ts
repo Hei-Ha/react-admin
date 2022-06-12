@@ -1,9 +1,10 @@
 import Axios, { AxiosRequestConfig } from 'axios'
 import envConfig  from '/build/env.config'
 import { message } from 'antd'
+import { Loading } from '@/components/loading'
+import ReactDom from "react-dom";
 
 let loadingCount = 0
-
 const HTTP = Axios.create({
     baseURL: envConfig.baseURL,
     timeout: 5000,
@@ -15,6 +16,8 @@ HTTP.interceptors.request.use((config) => {
     if (loadingCount <= 0) {
         showLoading()
     }
+
+
     // do someting （携带 token）
     return config
 })
@@ -61,15 +64,8 @@ export const POST = (url: string, params: object) => {
 }
 
 const showLoading = () => {
-    const div = document.createElement('div')
-    div.setAttribute('width', '100%')
-    div.setAttribute('height', '100%')
-    div.textContent = 'nihao'
-    document.appendChild(div)
-    console.log('显示弹窗')
     loadingCount = loadingCount + 1
 }
-
 const closeLoading = () => {
     console.log('关闭弹窗')
 }

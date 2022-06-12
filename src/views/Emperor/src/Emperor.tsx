@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Card, Form, Input, Table, Select, Button } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
+import { Loading } from '@/components/loading'
 import {
     getDynasties as getDynastiesApi
 } from '@/services/Emperor.services'
@@ -77,6 +78,7 @@ export const Emperor = () => {
         }
     ]
     return <>
+        {/*<Loading />*/}
         <Card>
             <Form
                 layout={'inline'}
