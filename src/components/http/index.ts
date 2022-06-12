@@ -2,6 +2,8 @@ import Axios, { AxiosRequestConfig } from 'axios'
 import envConfig  from '/build/env.config'
 import { message } from 'antd'
 
+let loadingCount = 0
+
 const HTTP = Axios.create({
     baseURL: envConfig.baseURL,
     timeout: 5000,
@@ -10,11 +12,17 @@ const HTTP = Axios.create({
 
 // 请求拦截器
 HTTP.interceptors.request.use((config) => {
+    if (loadingCount <= 0) {
+        showLoading()
+    }
     // do someting （携带 token）
     return config
 })
 
 HTTP.interceptors.response.use((response) => {
+    if (loadingCount - 1 <= 0) {
+        closeLoading()
+    }
     // 2xx 范围内的状态码都会触发该函数。
     return response
 }, (error) => {
@@ -50,4 +58,18 @@ export const GET = (url: string, params?: object) => {
 
 export const POST = (url: string, params: object) => {
     return HTTP.post(url, params)
+}
+
+const showLoading = () => {
+    const div = document.createElement('div')
+    div.setAttribute('width', '100%')
+    div.setAttribute('height', '100%')
+    div.textContent = 'nihao'
+    document.appendChild(div)
+    console.log('显示弹窗')
+    loadingCount = loadingCount + 1
+}
+
+const closeLoading = () => {
+    console.log('关闭弹窗')
 }
