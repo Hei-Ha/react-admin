@@ -12,7 +12,8 @@ export default [
         children: [
             {
                 label: <Link to='/emperor/emperorList'>EmperorList</Link>,
-                key: '/emperor/emperorList'
+                key: '/emperor/emperorList',
+                rules: ['emperorList']
             }
         ]
     }
