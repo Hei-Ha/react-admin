@@ -1,10 +1,11 @@
 import React from "react";
 import { UserOutlined } from '@ant-design/icons'
+import {Link} from "react-router-dom";
 
 export default [
     {
-        label: 'Home',
-        path: '/',
+        label: <Link to='/'>Home</Link>,
+        key: '/',
         icon: <UserOutlined />,
         rules: ['home'],
         weight: 1

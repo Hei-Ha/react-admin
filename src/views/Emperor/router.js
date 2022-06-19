@@ -3,9 +3,9 @@ import React from "react";
 
 export default [
     {
-        name: 'emperor',
-        path: '/emperor',
+        name: 'emperorList',
+        path: '/emperor/emperorList',
         element: <Emperor />,
-        rules: ['emperor']
+        rules: ['emperorList']
     }
 ]
