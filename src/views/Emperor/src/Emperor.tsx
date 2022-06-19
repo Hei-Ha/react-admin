@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import { Card, Form, Input, Table, Select, Button } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
-import { Loading } from '@/components/loading'
 import {
     getDynasties as getDynastiesApi
 } from '@/services/Emperor.services'
@@ -25,15 +23,15 @@ export const Emperor = () => {
     }
 
     useEffect(() => {
-        // getDynastiesApi().then((res) => {
-        //     const a = Object.keys(res.data.dynasty).map((item) => {
-        //         return {
-        //             label: res.data.dynasty[item],
-        //             value: item
-        //         }
-        //     })
-        //     setDynamicList(a)
-        // })
+        getDynastiesApi().then((res) => {
+            const a = Object.keys(res.data.dynasty).map((item) => {
+                return {
+                    label: res.data.dynasty[item],
+                    value: item
+                }
+            })
+            setDynamicList(a)
+        })
     }, [])
 
     const tableData = [
@@ -78,7 +76,6 @@ export const Emperor = () => {
         }
     ]
     return <>
-        {/*<Loading />*/}
         <Card>
             <Form
                 layout={'inline'}
@@ -86,13 +83,13 @@ export const Emperor = () => {
                 <Form.Item name={'name'} className={'formItem-width-180'}>
                     <Input placeholder={'请输入姓名'} />
                 </Form.Item>
-                {/*<Form.Item name={'id'} className={'formItem-width-150'}>*/}
-                {/*    <Select placeholder={'请选择朝代'}>*/}
-                {/*        {dynamicList.map((item) => {*/}
-                {/*            return <Select.Option value={item.value} title={item.label} key={String(item.value) + item.label}>{item.label}</Select.Option>*/}
-                {/*        })}*/}
-                {/*    </Select>*/}
-                {/*</Form.Item>*/}
+                <Form.Item name={'id'} className={'formItem-width-150'}>
+                    <Select placeholder={'请选择朝代'}>
+                        {dynamicList.map((item) => {
+                            return <Select.Option value={item.value} title={item.label} key={String(item.value) + item.label}>{item.label}</Select.Option>
+                        })}
+                    </Select>
+                </Form.Item>
                 <Form.Item>
                     <Button onClick={() => { headSearch() }}>查询</Button>
                     <Button style={{ marginLeft: '10px'}}>重置</Button>

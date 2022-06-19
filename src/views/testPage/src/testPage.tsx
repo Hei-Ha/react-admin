@@ -2,6 +2,6 @@ import React from 'react'
 
 export const TestPage = () => {
     return <>
-    testPage
+        <div id='testCharts' />
     </>
 }
