@@ -5,7 +5,6 @@ export default [
     {
         name: 'home',
         path: '/',
-        element: <Home />,
-        rules: ['home']
+        element: <Home />
     }
 ]
