@@ -7,7 +7,6 @@ export default [
         label: <Link to='/'>Home</Link>,
         key: '/',
         icon: <UserOutlined />,
-        rules: ['home'],
         weight: 1
     }
 ]

@@ -1,5 +1,7 @@
 import React from "react";
 import { filterPermissions } from '@/utils/utils'
+import {Link} from "react-router-dom";
+import { UserOutlined } from "@ant-design/icons";
 
 const menuModules = require.context('../', true, /^\.\/(pages|views)(\/[\w.-]+)?\/menu.(js|ts|tsx)$/)
 
@@ -9,11 +11,18 @@ const menus = ((m) => {
     })
 })(menuModules)
 
-const res = [].concat(...menus)
 
+const home = [
+    {
+        label: <Link to='/'>Home</Link>,
+        key: '/',
+        icon: <UserOutlined />,
+        weight: 1
+    }
+]
+
+const res = home.concat(filterPermissions([].concat(...menus)))
 // 按照 weight 排序
 res.sort((a, b) => a.weight - b.weight)
 
-
-
-export default filterPermissions(res)
+export default res

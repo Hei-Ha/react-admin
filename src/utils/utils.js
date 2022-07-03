@@ -4,6 +4,7 @@ const userRules = [
     'home',
     'emperor',
     'emperorList',
+    'testPage'
 ]
 export const filterPermissions = (value) => {
     const filterRes = []
