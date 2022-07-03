@@ -17,6 +17,6 @@ const routerConfig = [
 ]
 
 
-const res = routerConfig.concat([].concat(...routers))
+const res = filterPermissions([].concat(...routers))
 
-export default res
+export default routerConfig.concat(res)

@@ -22,17 +22,17 @@ export const Emperor = () => {
         console.log(form.getFieldsValue())
     }
 
-    useEffect(() => {
-        getDynastiesApi().then((res) => {
-            const a = Object.keys(res.data.dynasty).map((item) => {
-                return {
-                    label: res.data.dynasty[item],
-                    value: item
-                }
-            })
-            setDynamicList(a)
-        })
-    }, [])
+    // useEffect(() => {
+    //     getDynastiesApi().then((res) => {
+    //         const a = Object.keys(res.data.dynasty).map((item) => {
+    //             return {
+    //                 label: res.data.dynasty[item],
+    //                 value: item
+    //             }
+    //         })
+    //         setDynamicList(a)
+    //     })
+    // }, [])
 
     const tableData = [
         {
