@@ -22,18 +22,21 @@ export const Emperor = () => {
         console.log(form.getFieldsValue())
     }
 
-    // useEffect(() => {
-    //     getDynastiesApi().then((res) => {
-    //         const a = Object.keys(res.data.dynasty).map((item) => {
-    //             return {
-    //                 label: res.data.dynasty[item],
-    //                 value: item
-    //             }
-    //         })
-    //         setDynamicList(a)
-    //     })
-    // }, [])
+    useEffect(() => {
+        getDynasties()
+    }, [])
 
+    const getDynasties = async () => {
+        const { data } = await getDynastiesApi()
+        const resEnum = Object.keys(data.dynasty).map((item) => {
+            return {
+                label: data.dynasty[item],
+                value: item
+            }
+        })
+        setDynamicList(resEnum)
+        console.log(3)
+    }
     const tableData = [
         {
             key: '1',
