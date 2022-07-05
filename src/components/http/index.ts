@@ -17,16 +17,19 @@ HTTP.interceptors.request.use((config) => {
         showLoading()
     }
 
-
     // do someting （携带 token）
     return config
 })
 
 HTTP.interceptors.response.use((response) => {
+    // 2xx 范围内的状态码都会触发该函数。
     if (loadingCount - 1 <= 0) {
         closeLoading()
     }
-    // 2xx 范围内的状态码都会触发该函数。
+    if (response.data.status !== 0) {
+        message.error(response.data.errorMsg)
+        return
+    }
     return response
 }, (error) => {
     // 超出 2xx 范围的状态码都会触发该函数。

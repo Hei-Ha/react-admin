@@ -35,7 +35,6 @@ export const Emperor = () => {
             }
         })
         setDynamicList(resEnum)
-        console.log(3)
     }
     const tableData = [
         {
